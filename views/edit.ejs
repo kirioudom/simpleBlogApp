@@ -1,0 +1,21 @@
+<% include partials/header.ejs %>
+    
+    <div class = "ui main text container segment">
+          <form class = "ui form" action="/index/<%=data._id%>?_method=PUT" method="POST">
+          <div class = "ui huge header">Edit <%= data.title %></div>
+               <div class = "field">
+                   <label>title</label>
+                   <textarea rows="1" name="data[title]"><%= data.title %></textarea>
+              </div>
+                <div class = "field">
+                   <label>image</label>
+                   <textarea rows="1" name="data[image]"><%= data.image %></textarea>
+              </div>
+              <div class="field">
+                   <label>Text</label>
+                   <textarea name="data[body]" placeholder="text"><%= data.body %></textarea>
+              </div>
+              <input type="submit" class="ui button">
+          </form>
+    </div>
+<% include partials/footer.ejs %>

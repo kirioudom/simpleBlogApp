@@ -1,0 +1,11 @@
+i.icon{
+    font-size: 2em;
+}
+
+.container.main.text{
+    margin-top: 4em;
+}
+
+p{
+    max-width: 100%;
+}

@@ -1,0 +1,31 @@
+<% include partials/header.ejs %>
+
+<div class = "ui fixed menu">
+    <div class = "ui container">
+         <div class="header item"><i class = "home icon"></i> <a href="/index">Home</a></div>
+         <a href= "/index" class = "item">Back</a>
+    </div>
+</div>
+
+<div class="ui main text container segment">
+    <div class="ui grid">
+        <div class="row">
+            <div class="thirteen wide column"><h2><%= data.title %></h2></div>
+            <div class="three wide column"><a class = "mini ui icon button " href="/index/<%= data.id%>/edit"><i class = "pencil icon"></i></a>
+                <a class = "mini ui icon button " href="/index/<%= data.id%>?_method=DELETE"><i class = "remove icon"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class = "ui top attached">
+        <div class = "item">
+            <img class = "ui centered rounded image" src='<%= data.image %>' alt='<%= data.title %>'>
+             <div class = "content">
+                 <span><%= data.create.toLocaleString() %></span>
+             </div>
+             <div class = "description">
+                 <p><%=data.body %></p>
+             </div>
+        </div>
+    </div>
+</div>
+<% include partials/footer.ejs %>

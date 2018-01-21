@@ -1,0 +1,39 @@
+<% include partials/header.ejs %>
+
+    <div class="ui fixed menu">
+        <div class="ui container">
+            <a href="/index" class="header item"><i class = "home icon"></i>Home</a>
+            <a href="/index/create" class="item">create</a>
+        </div>
+    </div>
+
+    <div class="ui main text container">
+        <% data.forEach(function(blog){ %>
+            <div class="ui segment">
+                <div class="ui grid">
+                    <div class="twelve wide column">
+                        <h2>
+                            <%=blog.title %>
+                        </h2>
+                    </div>
+                    <div class="two wide column"><a class="mini ui icon button " href="/index/<%= data.id%>/edit"><i class = "pencil icon"></i></a></div>
+                    <form class="two wide column" action="/index/<%= blog._id %>?_method=DELETE" method="POST">
+                        <button class="mini ui icon button" type="submit"><i class = "remove icon"></i></button>
+                    </form>
+                </div>
+                <img src="<%= blog.image %>" alt="blog.title">
+                <p>
+                    <%= blog.create.toLocaleString() %>
+                </p>
+                <% if(blog.body.length >= 100){ %>
+                    <p>
+                        <%= blog.body.substring(0, 70) %>...<a href='/index/show/<%= blog._id %>'>Read more</a></p>
+                    <% } else { %>
+                        <p>
+                            <%= blog.body %>
+                        </p>
+                        <% } %>
+            </div>
+            <% }) %>
+    </div>
+    <% include partials/footer.ejs %>
